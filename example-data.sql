@@ -27,4 +27,16 @@ insert into böden (nummer, art, feuchte)
 insert into böden (nummer, art, feuchte)
 	values (4, 'ton', 'feucht');
 
+insert into baumarten (nummer, name, nadel, licht, invasiv)
+	values (1, 'Waldkiefer', true, true, false);
+insert into baumarten (nummer, name, nadel, licht, invasiv)
+	values (2, 'Traubeneiche', false, true, false);
+insert into baumarten (nummer, name, nadel, licht, invasiv)
+	values (3, 'Hainbuche', false, false, false);
+insert into baumarten (nummer, name, nadel, licht, invasiv)
+	values (4, 'Moorbirke', false, true, false);
+insert into baumarten (nummer, name, nadel, licht, invasiv)
+	values (5, 'Douglasie', true, true, false);
+insert into baumarten (nummer, name, nadel, licht, invasiv)
+	values (6, 'Spätblühende Traubenkirsche', false, true, true);
 
