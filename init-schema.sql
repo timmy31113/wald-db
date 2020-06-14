@@ -16,6 +16,8 @@ drop type if exists bodenart cascade;
 drop type if exists bodenfeuchte cascade;
 drop type if exists schädigungsart cascade;
 
+drop view if exists baumalter;
+
 create type einstrahlung_enum as enum ('flachlage', 'sonnenhang', 'schattenhang');
 
 create table lagen (
@@ -86,6 +88,27 @@ create table bäume (
 	gepflanzt	integer references pflanzmaßnahmen (nummer),
 	gefällt		integer references fällarbeiten (nummer)
 );
+
+create view bäume_mit_alter (nummer, alter, größe, position, lebt, art, standort, gepflanzt, gefällt) 
+	as select b.nummer, extract(year from age(b.sähjahr)), b.größe, b.position, b.lebt, b.art, b.standort, b.gepflanzt, b.gefällt 
+	from bäume b;
+
+create rule baum_insert_alter as on insert to bäume_mit_alter do instead
+	insert into bäume (nummer, sähjahr, größe, position, lebt, art, standort, gepflanzt, gefällt)
+	values (new.nummer, current_date - interval '1 year' * new.alter, new.größe, new.position, new.lebt, new.art, new.standort, new.gepflanzt, new.gefällt);
+
+create rule baum_update_alter as on update to bäume_mit_alter do instead
+	update bäume
+	set	nummer		 = new.nummer, 
+		sähjahr		 = current_date - interval '1 year' * new.alter, 
+		größe		 = new.größe, 
+		position	 = new.position, 
+		lebt		 = new.lebt, 
+		art			 = new.art, 
+		standort	 = new.standort, 
+		gepflanzt	 = new.gepflanzt, 
+		gefällt		 = new.gefällt
+	where nummer = old.nummer;
 
 create table verschatten (
 	täter	integer references bäume (nummer),
