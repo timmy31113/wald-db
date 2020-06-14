@@ -14,6 +14,7 @@ drop type if exists einstrahlung_enum cascade;
 drop type if exists temperatur_enum cascade;
 drop type if exists bodenart cascade;
 drop type if exists bodenfeuchte cascade;
+drop type if exists schädigungsart cascade;
 
 create type einstrahlung_enum as enum ('flachlage', 'sonnenhang', 'schattenhang');
 
@@ -44,7 +45,59 @@ create table böden (
 
 create table standorte (
 	nummer	serial primary key,
-	lage	integer references lagen (nummer),
-	klima	integer references klimas (nummer),
-	boden	integer references böden (nummer)
+	lage	integer references lagen (nummer) not null,
+	klima	integer references klimas (nummer) not null,
+	boden	integer references böden (nummer) not null
+);
+
+create table baumarten (
+	nummer	serial primary key,
+	name	varchar not null,
+	nadel	boolean,
+	licht	boolean,
+	invasiv	boolean
+);
+
+create table wachsen (
+	baumart 	integer references baumarten (nummer),
+	standort	integer references standorte (nummer),
+	wie_gut		integer check (wie_gut >= 0 and wie_gut <= 10),
+	primary key (baumart, standort)
+);
+
+create table pflanzmaßnahmen (
+	nummer	serial primary key,
+	datum	date not null
+);
+
+create table fällarbeiten (
+	nummer	serial primary key,
+	datum	date not null
+);
+
+create table bäume (
+	nummer		serial primary key,
+	sähjahr		date,
+	größe		real,
+	position	point not null,
+	lebt		boolean not null,
+	art			integer references baumarten (nummer) not null,
+	standort	integer references standorte (nummer),
+	gepflanzt	integer references pflanzmaßnahmen (nummer),
+	gefällt		integer references fällarbeiten (nummer)
+);
+
+create table verschatten (
+	täter	integer references bäume (nummer),
+	opfer	integer references bäume (nummer),
+	primary key (täter, opfer)
+);
+
+create type schädigungsart as enum ('wild', 'insekt', 'pilz', 'sturm', 'dürre', 'brand');
+
+create table schädigungen (
+	nummer	serial primary key,
+	art		schädigungsart not null,
+	datum	date,
+	baum	integer references bäume (nummer)
 );
