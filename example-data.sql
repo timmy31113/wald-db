@@ -40,3 +40,43 @@ insert into baumarten (nummer, name, nadel, licht, invasiv)
 insert into baumarten (nummer, name, nadel, licht, invasiv)
 	values (6, 'Spätblühende Traubenkirsche', false, true, true);
 
+insert into standorte (nummer, lage, klima, boden)
+	values (1, 1, 1, 1);
+insert into standorte (nummer, lage, klima, boden)
+	values (2, 2, 5, 3);
+insert into standorte (nummer, lage, klima, boden)
+	values (3, 4, 2, 2);
+insert into standorte (nummer, lage, klima, boden)
+	values (4, 3, 4, 2);
+
+insert into pflanzmaßnahmen (nummer, datum)
+	values (1, date '20.09.2019');
+insert into pflanzmaßnahmen (nummer, datum)
+	values (2, date '20.09.2019');
+insert into pflanzmaßnahmen (nummer, datum)
+	values (3, date '15.11.2019');
+insert into pflanzmaßnahmen (nummer, datum)
+	values (4, date '30.08.2019');
+
+insert into fällarbeit (nummer, datum)
+	values (1, date '01.02.2020');
+insert into fällarbeit (nummer, datum)
+	values (2, date '04.02.2020');
+insert into fällarbeit (nummer, datum)
+	values (3, date '23.04.2020');
+insert into fällarbeit (nummer, datum)
+	values (4, date '24.04.2020');
+
+insert into wachsen (baumart, standort, wie_gut)
+	values (1, 1, 10);
+insert into wachsen (baumart, standort, wie_gut)
+	values (6, 1, 10);
+insert into wachsen (baumart, standort, wie_gut)
+	values (2, 1, 8);
+insert into wachsen (baumart, standort, wie_gut)
+	values (4, 1, 0);
+insert into wachsen (baumart, standort, wie_gut)
+	values (4, 2, 9);
+insert into wachsen (baumart, standort, wie_gut)
+	values (3, 4, 10);
+
