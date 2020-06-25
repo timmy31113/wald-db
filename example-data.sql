@@ -1,71 +1,71 @@
 insert into lagen (nummer, höhe, hangneigung, einstrahlung)
-	values (1, 30, 0, 'flachlage');
+	values (default, 30, 0, 'flachlage');
 insert into lagen (nummer, höhe, hangneigung, einstrahlung)
-	values (2, 150, 20, 'sonnenhang');
+	values (default, 150, 20, 'sonnenhang');
 insert into lagen (nummer, höhe, hangneigung, einstrahlung)
-	values (3, 80, 30, 'schattenhang');
+	values (default, 80, 30, 'schattenhang');
 insert into lagen (nummer, höhe, hangneigung, einstrahlung)
-	values (4, 500, 5, 'flachlage');
+	values (default, 500, 5, 'flachlage');
 
 insert into klimas (nummer, temperatur, niederschlag)
-	values (1, 'kalt', 700);
+	values (default, 'kalt', 700);
 insert into klimas (nummer, temperatur, niederschlag)
-	values (2, 'warm', 850);
+	values (default, 'warm', 850);
 insert into klimas (nummer, temperatur, niederschlag)
-	values (3, 'mittel', 600);
+	values (default, 'mittel', 600);
 insert into klimas (nummer, temperatur, niederschlag)
-	values (4, 'warm', 1800);
+	values (default, 'warm', 1800);
 insert into klimas (nummer, temperatur, niederschlag)
-	values (5, 'kalt', 1000);
+	values (default, 'kalt', 1000);
 
 insert into böden (nummer, art, feuchte)
-	values (1, 'sand', 'trocken');
+	values (default, 'sand', 'trocken');
 insert into böden (nummer, art, feuchte)
-	values (2, 'schluff', 'frisch');
+	values (default, 'schluff', 'frisch');
 insert into böden (nummer, art, feuchte)
-	values (3, 'lehm', 'feucht');
+	values (default, 'lehm', 'feucht');
 insert into böden (nummer, art, feuchte)
-	values (4, 'ton', 'feucht');
+	values (default, 'ton', 'feucht');
 
 insert into baumarten (nummer, name, nadel, licht, invasiv)
-	values (1, 'Waldkiefer', true, true, false);
+	values (default, 'Waldkiefer', true, true, false);
 insert into baumarten (nummer, name, nadel, licht, invasiv)
-	values (2, 'Traubeneiche', false, true, false);
+	values (default, 'Traubeneiche', false, true, false);
 insert into baumarten (nummer, name, nadel, licht, invasiv)
-	values (3, 'Hainbuche', false, false, false);
+	values (default, 'Hainbuche', false, false, false);
 insert into baumarten (nummer, name, nadel, licht, invasiv)
-	values (4, 'Moorbirke', false, true, false);
+	values (default, 'Moorbirke', false, true, false);
 insert into baumarten (nummer, name, nadel, licht, invasiv)
-	values (5, 'Douglasie', true, true, false);
+	values (default, 'Douglasie', true, true, false);
 insert into baumarten (nummer, name, nadel, licht, invasiv)
-	values (6, 'Spätblühende Traubenkirsche', false, true, true);
+	values (default, 'Spätblühende Traubenkirsche', false, true, true);
 
 insert into standorte (nummer, lage, klima, boden)
-	values (1, 1, 1, 1);
+	values (default, 1, 1, 1);
 insert into standorte (nummer, lage, klima, boden)
-	values (2, 2, 5, 3);
+	values (default, 2, 5, 3);
 insert into standorte (nummer, lage, klima, boden)
-	values (3, 4, 2, 2);
+	values (default, 4, 2, 2);
 insert into standorte (nummer, lage, klima, boden)
-	values (4, 3, 4, 2);
+	values (default, 3, 4, 2);
 
 insert into pflanzmaßnahmen (nummer, datum)
-	values (1, date '20.09.2019');
+	values (default, date '20.09.2019');
 insert into pflanzmaßnahmen (nummer, datum)
-	values (2, date '20.09.2019');
+	values (default, date '20.09.2019');
 insert into pflanzmaßnahmen (nummer, datum)
-	values (3, date '15.11.2019');
+	values (default, date '15.11.2019');
 insert into pflanzmaßnahmen (nummer, datum)
-	values (4, date '30.08.2019');
+	values (default, date '30.08.2019');
 
 insert into fällarbeiten (nummer, datum)
-	values (1, date '01.02.2020');
+	values (default, date '01.02.2020');
 insert into fällarbeiten (nummer, datum)
-	values (2, date '04.02.2020');
+	values (default, date '04.02.2020');
 insert into fällarbeiten (nummer, datum)
-	values (3, date '23.04.2020');
+	values (default, date '23.04.2020');
 insert into fällarbeiten (nummer, datum)
-	values (4, date '24.04.2020');
+	values (default, date '24.04.2020');
 
 insert into wachsen (baumart, standort, wie_gut)
 	values (1, 1, 10);
@@ -139,11 +139,11 @@ insert into verschatten (täter, opfer)
 	values (7, 14);
 
 insert into schädigungen (nummer, art, datum, baum)
-	values (1, 'insekt', date '01.01.2020', 4);
+	values (default, 'insekt', date '01.01.2020', 4);
 insert into schädigungen (nummer, art, datum, baum)
-	values (2, 'insekt', date '01.01.2020', 7);
+	values (default, 'insekt', date '01.01.2020', 7);
 insert into schädigungen (nummer, art, datum, baum)
-	values (3, 'wild', date '05.06.2020', 13);
+	values (default, 'wild', date '05.06.2020', 13);
 insert into schädigungen (nummer, art, datum, baum)
-	values (4, 'sturm', date '20.03.2020', 5);
+	values (default, 'sturm', date '20.03.2020', 5);
 
